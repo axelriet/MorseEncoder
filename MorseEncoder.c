@@ -118,7 +118,7 @@ MorseEncoder_TransmitSymbol(int c)
         ".--",      // W
         "-..-",     // X
         "-.--",     // Y
-        "--.."      // Z
+        "--..",     // Z
         "-----",    // 0
         ".----",    // 1
         "..---",    // 2
@@ -133,7 +133,7 @@ MorseEncoder_TransmitSymbol(int c)
 
     if (c >= '0' && c <= '9')
     {
-        symbol = MorseCode[c + 'z' - '0'];
+        symbol = MorseCode[c + 26 - '0'];
     }
     else
     {
