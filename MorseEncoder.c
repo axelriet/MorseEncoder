@@ -1,25 +1,27 @@
-/* Morse Encoder
+/*++
 
-   This code is in the Public Domain (or CC0 licensed, at your option.)
+ITU R-REC-M.1677-1-200910 Morse Encoder
 
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-   
-   Description:
+    This code is in the Public Domain (or CC0 licensed, at your option.)
 
-        ITU R-REC-M.1677-1-200910 International Morse Encoder, as described in
-        https://www.itu.int/dms_pubrec/itu-r/rec/m/R-REC-M.1677-1-200910-I!!PDF-E.pdf
+    Unless required by applicable law or agreed to in writing, this
+    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+    CONDITIONS OF ANY KIND, either express or implied.
 
-    Author:
+Description:
 
-        Axel Rietschin - June 27, 2020
-        
-    Environment:
-    
-        Any
+    ITU R-REC-M.1677-1-200910 International Morse Encoder, as described in
+    https://www.itu.int/dms_pubrec/itu-r/rec/m/R-REC-M.1677-1-200910-I!!PDF-E.pdf
 
-*/
+Author:
+
+    Axel Rietschin - June 27, 2020
+
+Environment:
+
+    Any
+
+--*/
 
 #include <ctype.h>
 
@@ -46,19 +48,19 @@ DashSymbol()
 static void
 EndOfSymbol()
 {
-    MorseEncoder_SetSignalState(0, 2 * MorseEncoder_GetBaseTimeUnitMs());  // 3 total
+    MorseEncoder_SetSignalState(0, 2 * MorseEncoder_GetBaseTimeUnitMs()); // 3 total
 }
 
 static void
 EndOfWord()
 {
-    MorseEncoder_SetSignalState(0, 6 * MorseEncoder_GetBaseTimeUnitMs());  // 7 total
+    MorseEncoder_SetSignalState(0, 6 * MorseEncoder_GetBaseTimeUnitMs()); // 7 total
 }
 
 static void
 EndOfSentence()
 {
-    MorseEncoder_SetSignalState(0, 10 * MorseEncoder_GetBaseTimeUnitMs());  // 11 total
+    MorseEncoder_SetSignalState(0, 10 * MorseEncoder_GetBaseTimeUnitMs()); // 11 total
 }
 
 static void
@@ -237,7 +239,7 @@ void
 MorseEncoder_TransmitEndOfMessageSymbol()
 {
     TransmitSymbol("...-.-");
-    MorseEncoder_SetSignalState(0, 21 * MorseEncoder_GetBaseTimeUnitMs());  // 22 total
+    MorseEncoder_SetSignalState(0, 21 * MorseEncoder_GetBaseTimeUnitMs()); // 22 total
 }
 
 void

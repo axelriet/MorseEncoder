@@ -1,20 +1,27 @@
-/* Morse Encoder Example
+/*++
 
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
+ITU R-REC-M.1677-1-200910 Morse Encoder
 
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
+    This code is in the Public Domain (or CC0 licensed, at your option.)
 
-    Author:
+    Unless required by applicable law or agreed to in writing, this
+    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+    CONDITIONS OF ANY KIND, either express or implied.
 
-        Axel Rietschin - June 27, 2020
-        
-    Environment:
-    
-        Any
+Description:
 
-*/
+    ITU R-REC-M.1677-1-200910 International Morse Encoder, as described in
+    https://www.itu.int/dms_pubrec/itu-r/rec/m/R-REC-M.1677-1-200910-I!!PDF-E.pdf
+
+Author:
+
+    Axel Rietschin - June 27, 2020
+
+Environment:
+
+    Any
+
+--*/
 
 #pragma once
 

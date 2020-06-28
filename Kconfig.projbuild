@@ -1,0 +1,25 @@
+menu "Example Configuration"
+
+    config BLINK_GPIO
+        int "Morse encoder GPIO number"
+        range 0 34
+        default 13
+        help
+            GPIO number (IOxx) to blink on and off.
+
+            Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+
+            GPIOs 35-39 are input-only so cannot be used as outputs.
+
+    config BASE_TIME_UNIT_MS
+        int "Morse encoder base time unit in milliseconds"
+        range 10 1000
+        default 100
+        help
+            The base time unit in milliseconds represents the duration of a single Morse dot.
+
+            This value is used as the basis of the signal timing.
+
+            100ms seems to be a reasonable value for a trained human to understand.
+
+endmenu

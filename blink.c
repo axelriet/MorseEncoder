@@ -1,4 +1,6 @@
-/* Morse Encoder Example
+/*++
+
+Morse Encoder Example
 
    This example code is in the Public Domain (or CC0 licensed, at your option.)
 
@@ -6,15 +8,15 @@
    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
    CONDITIONS OF ANY KIND, either express or implied.
 
-    Author:
+Author:
 
-        Axel Rietschin - June 27, 2020
-        
-    Environment:
-    
-        ESP32 with ESP-IDF 4.x
+    Axel Rietschin - June 27, 2020
 
-*/
+Environment:
+
+    ESP32 with ESP-IDF 4.x
+
+--*/
 
 #include <stdio.h>
 #include <ctype.h>
@@ -27,14 +29,14 @@
 
 // Can use project configuration menu (idf.py menuconfig) to choose
 // the GPIO to blink and the base time unit, or you can edit the
-// following lines and set values here.
+// following lines and define values here.
 //
 // A good base time unit is 100ms. The pin depends on the hardware
 // configuration. The Huzzah32 ESP32 board has the LED wired on pin 13.
 //
 
-#define BASE_TIME_UNIT_MS   CONFIG_BASE_TIME_UNIT_MS
-#define BLINK_GPIO          CONFIG_BLINK_GPIO
+#define BASE_TIME_UNIT_MS   CONFIG_BASE_TIME_UNIT_MS // or use 100
+#define BLINK_GPIO          CONFIG_BLINK_GPIO        // or use your pin #
 
 //
 // Hardware-dependent function supplied to the encoder
