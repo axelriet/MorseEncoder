@@ -8,11 +8,11 @@
 
     Author:
 
-        Axel Rietschin - June 27, 2020.
+        Axel Rietschin - June 27, 2020
         
     Environment:
     
-        ESP32 with ESP-IDF 4.x
+        Any
 
 */
 

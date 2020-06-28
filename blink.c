@@ -8,7 +8,7 @@
 
     Author:
 
-        Axel Rietschin - June 27, 2020.
+        Axel Rietschin - June 27, 2020
         
     Environment:
     
@@ -50,7 +50,7 @@ void
 MorseEncoder_SetSignalState(int state, int pauseDurationMs)
 {
     gpio_set_level(BLINK_GPIO, state ? 1 : 0);
-    
+
     if (pauseDurationMs > 0)
     {
         vTaskDelay(pauseDurationMs / portTICK_PERIOD_MS);
@@ -73,7 +73,7 @@ void
 app_main()
 {
     Initialize();
-    
+
     while (1)
     {
         MorseEncoder_TransmitStartOfMessageSymbol();

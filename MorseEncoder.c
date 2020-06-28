@@ -13,11 +13,11 @@
 
     Author:
 
-        Axel Rietschin - June 27, 2020.
+        Axel Rietschin - June 27, 2020
         
     Environment:
     
-        ESP32 with ESP-IDF 4.x
+        Any
 
 */
 
@@ -77,7 +77,7 @@ TransmitSymbol(const char* morseSymbol)
                 DashSymbol();
             }
         }
-        
+
         EndOfSymbol();
     }
 }
@@ -171,7 +171,7 @@ MorseEncoder_TransmitSymbol(int c)
     }
     
     TransmitSymbol(symbol);
-    
+
     return 1;
 }
 
@@ -181,16 +181,16 @@ MorseEncoder_TransmitString(const char* string)
     if (string)
     {
         int sentenceOpen = 0;
-        
+
         while (*string)
         {
             if (*string == ' ')
             {
-                while (* ++string == ' ') 
+                while (*++string == ' ') 
                 {
                     ;
                 }
-                
+
                 if (*string && sentenceOpen)
                 {
                     EndOfWord();
