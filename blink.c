@@ -21,14 +21,33 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/gpio.h"
+#include "sdkconfig.h"
 
 #include "MorseEncoder.h"
+
+// Can use project configuration menu (idf.py menuconfig) to choose
+// the GPIO to blink and the base time unit, or you can edit the
+// following lines and set values here.
+//
+// A good base time unit is 100ms. The pin depends on the hardware
+// configuration. The Huzzah32 ESP32 board has the LED wired on pin 13.
+//
+
+#define BASE_TIME_UNIT_MS   CONFIG_BASE_TIME_UNIT_MS
+#define BLINK_GPIO          CONFIG_BLINK_GPIO
 
 //
 // Hardware-dependent function supplied to the encoder
 //
 
-void MorseEncoder_SetSignalState(int state, int pauseDurationMs)
+inline int
+MorseEncoder_GetBaseTimeUnitMs()
+{
+    return BASE_TIME_UNIT_MS;
+}
+
+void
+MorseEncoder_SetSignalState(int state, int pauseDurationMs)
 {
     gpio_set_level(BLINK_GPIO, state ? 1 : 0);
     
@@ -42,14 +61,16 @@ void MorseEncoder_SetSignalState(int state, int pauseDurationMs)
 // Sample program
 //
 
-void Initialize()
+void
+Initialize()
 {
     gpio_pad_select_gpio(BLINK_GPIO);
     gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
     gpio_set_level(BLINK_GPIO, 0);
 }
 
-void app_main()
+void
+app_main()
 {
     Initialize();
     

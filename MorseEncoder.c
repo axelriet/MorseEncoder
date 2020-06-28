@@ -26,45 +26,39 @@
 #include "MorseEncoder.h"
 
 //
-// Hardware-dependent functions supplied by the user
-//
-
-extern void MorseEncoder_SetSignalState(int state, int pauseDurationMs);
-
-//
 // Internal functions
 //
 
 static void
 DotSymbol()
 {
-    MorseEncoder_SetSignalState(1, 1 * BASE_TIME_UNIT_MS);
-    MorseEncoder_SetSignalState(0, BASE_TIME_UNIT_MS);
+    MorseEncoder_SetSignalState(1, MorseEncoder_GetBaseTimeUnitMs());
+    MorseEncoder_SetSignalState(0, MorseEncoder_GetBaseTimeUnitMs());
 }
 
 static void
 DashSymbol()
 {
-    MorseEncoder_SetSignalState(1, 3 * BASE_TIME_UNIT_MS);
-    MorseEncoder_SetSignalState(0, BASE_TIME_UNIT_MS);
+    MorseEncoder_SetSignalState(1, 3 * MorseEncoder_GetBaseTimeUnitMs());
+    MorseEncoder_SetSignalState(0, MorseEncoder_GetBaseTimeUnitMs());
 }
 
 static void
 EndOfSymbol()
 {
-    MorseEncoder_SetSignalState(0, 2 * BASE_TIME_UNIT_MS);  // 3 total
+    MorseEncoder_SetSignalState(0, 2 * MorseEncoder_GetBaseTimeUnitMs());  // 3 total
 }
 
 static void
 EndOfWord()
 {
-    MorseEncoder_SetSignalState(0, 6 * BASE_TIME_UNIT_MS);  // 7 total
+    MorseEncoder_SetSignalState(0, 6 * MorseEncoder_GetBaseTimeUnitMs());  // 7 total
 }
 
 static void
 EndOfSentence()
 {
-    MorseEncoder_SetSignalState(0, 10 * BASE_TIME_UNIT_MS);   // 11 total
+    MorseEncoder_SetSignalState(0, 10 * MorseEncoder_GetBaseTimeUnitMs());  // 11 total
 }
 
 static void
@@ -243,7 +237,7 @@ void
 MorseEncoder_TransmitEndOfMessageSymbol()
 {
     TransmitSymbol("...-.-");
-    MorseEncoder_SetSignalState(0, 21 * BASE_TIME_UNIT_MS);  // 22 total
+    MorseEncoder_SetSignalState(0, 21 * MorseEncoder_GetBaseTimeUnitMs());  // 22 total
 }
 
 void

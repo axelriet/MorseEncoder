@@ -18,24 +18,14 @@
 
 #pragma once
 
-// Can use project configuration menu (idf.py menuconfig) to choose
-// the GPIO to blink and the base time unit, or you can edit the
-// following lines and set values here.
 //
-// A good base time unit is 100ms. The pin depends on the hardware
-// configuration. The Huzzah32 ESP32 board has the LED wired on pin 13.
+// Environment-dependent functions supplied by the user
 //
 
-#include "sdkconfig.h"
+extern inline int
+MorseEncoder_GetBaseTimeUnitMs();
 
-#define BASE_TIME_UNIT_MS   CONFIG_BASE_TIME_UNIT_MS
-#define BLINK_GPIO          CONFIG_BLINK_GPIO
-
-//
-// Hardware-dependent functions supplied by the user
-//
-
-void
+extern void
 MorseEncoder_SetSignalState(int state, int pauseDurationMs);
 
 //
