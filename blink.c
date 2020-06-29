@@ -39,7 +39,7 @@ Environment:
 #define BLINK_GPIO          CONFIG_BLINK_GPIO        // or use your pin #
 
 //
-// Hardware-dependent function supplied to the encoder
+// Environment-dependent functions supplied to the Morse encoder
 //
 
 inline int
@@ -79,7 +79,7 @@ app_main()
     while (1)
     {
         MorseEncoder_TransmitStartOfMessageSymbol();
-        MorseEncoder_TransmitString("MY NAME IS AXEL. I JUST WROTE A MORSE ENCODER :-)");
+        MorseEncoder_TransmitString("HI, MY NAME IS AXEL. I JUST WROTE A MORSE ENCODER :-)");
         MorseEncoder_TransmitEndOfMessageSymbol();
     }
 }
